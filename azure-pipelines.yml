@@ -1,5 +1,12 @@
+variables:  
+  imageName: 'ml_issue'  # Replace with the name of the image you want to publish
+
 trigger:
 - master
+- task: versioncounter@1
+  inputs:
+    VersionVariable: '1.0.*'
+    DevOpsPat: 'lrurngirbq4odbemxjviadang653ecigzv33ovjdb5lx2vussjxa'
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -11,7 +18,11 @@ steps:
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
+    docker build -t $(dockerId)/$(imageName) .
+    docker login -u $(dockerId) -p $(pswd) <docker-registry-url>
   displayName: 'Run a multi-line script'
+  env:
+    pswd: $(dockerPassword)
 
   # Starter pipeline
 - task: Docker@2
