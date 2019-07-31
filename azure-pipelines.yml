@@ -3,15 +3,16 @@ variables:
 
 trigger:
 - master
-- task: versioncounter@1
-  inputs:
-    VersionVariable: '1.0.*'
-    DevOpsPat: 'lrurngirbq4odbemxjviadang653ecigzv33ovjdb5lx2vussjxa'
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: versioncounter@1
+  inputs:
+    VersionVariable: '1.0.*'
+    DevOpsPat: 'lrurngirbq4odbemxjviadang653ecigzv33ovjdb5lx2vussjxa'
+    
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
