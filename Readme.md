@@ -4,7 +4,7 @@ This is images for detect issue log. Build by dotNet Core Framework and ML .Net
 
 Run command example
 
-`docker -p 8080:8080 --name test_ml -d aphisiit/ml_issue:tagname`
+`docker run -p 8080:8080 --name test_ml -d aphisiit/ml_issue:tagname`
 
 BasePath (Context path) : /IssueML
 
