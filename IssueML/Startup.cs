@@ -47,6 +47,29 @@ namespace IssueML
                     builder => builder.AllowAnyOrigin()
                     .AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             });
+
+            // Register the Swagger services
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1.0";
+                    document.Info.Title = "IssueML API";
+                    document.Info.Description = "IssueML API .NET Core Web API";
+                    document.Info.TermsOfService = "None";
+                    document.Info.Contact = new NSwag.OpenApiContact
+                    {
+                        Name = "No Implement Now",
+                        Email = string.Empty,
+                        Url = "http://localhost/"
+                    };
+                    document.Info.License = new NSwag.OpenApiLicense
+                    {
+                        Name = "MIT License",
+                        Url = "https://opensource.org/licenses/MIT"
+                    };
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +81,10 @@ namespace IssueML
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // Register the Swagger generator and the Swagger UI middlewares
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
