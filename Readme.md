@@ -12,6 +12,8 @@ URL (POST-GET) : http://x.x.x.x/IssueML/api/IssuePredict?str=${SOME_SENTENCE}
 
 version release
 
+- 20190804.1 : Add swagger UI for document API
+
 - 20190731.6 : Train model with new data, Accuracy 91.5%
 
 - 1.0 : Train model with new data
