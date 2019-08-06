@@ -20,11 +20,11 @@ steps:
   env:
     pswd: $(dockerPassword)
 
-  # Starter pipeline
-- task: Docker@2
-  inputs:
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+  # Starter Docker pipeline
+  #- task: Docker@2
+  # inputs:
+  #  command: 'buildAndPush'
+  #  Dockerfile: '**/Dockerfile'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
