@@ -16,7 +16,7 @@ steps:
     docker build -t $(dockerId)/$(imageName):$(Build.BuildNumber) .
     docker login -u $(dockerId) -p $(dockerPassword)
     docker push $(dockerId)/$(imageName):$(Build.BuildNumber)
-  displayName: 'Build Image'
+  displayName: 'Docker pipeline'
   env:
     pswd: $(dockerPassword)
 
